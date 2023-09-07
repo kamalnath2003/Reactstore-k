@@ -17,18 +17,21 @@ const Storage = multer.diskStorage({
 const upload = multer({storage: Storage})
 
 router.post("/add-product", upload.single("imageFile"), (req, res)=>{
-    const imgUrl = req.body.ImgUrl;
+    const imgfile = req.file.filename;
     const name = req.body.name;
     const colorram = req.body.colorram;
     const rate = req.body.rate;
     const color = req.body.color;
     const offPrice = req.body.offPrice;
     const type = req.body.type;
+    console.log(name)
+    console.log(req.body.name)
+
 
 
 
     const newProduct = new Products({
-        imgUrl: imgUrl,
+        imgPath: imgfile,
         name: name,
         colorram: colorram,
         rate: rate,
@@ -37,6 +40,9 @@ router.post("/add-product", upload.single("imageFile"), (req, res)=>{
         type: type,
        
     })
+    console.log(name)
+    console.log(req.body.name)
+
 
     newProduct.save()
     .then(result => {
@@ -60,17 +66,15 @@ router.get("/", (req, res) => {
 
 router.post("/update-product", upload.single("imageFile"), (req, res)=>{
     Products.findById(req.body.id)
-    .then((updateItem) =>{
-        updateItem.imgUrl= req.body.imgUrl,
+    .then((updateItem) =>{        
         updateItem.name= req.body.name,
         updateItem.colorram= req.body.colorram,
         updateItem.rate= req.body.rate,
         updateItem.color=req.body.color,
         updateItem.offPrice= req.body.offPrice,
         updateItem.type= req.body.type
-
         if(req.file){
-            updateItem.imgUrl = req.file.filename;
+            updateItem.imgPath = req.file.filename;
         }
 
         updateItem.save()

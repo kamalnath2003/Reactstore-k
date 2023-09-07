@@ -1,6 +1,6 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { FaEnvelope, FaGoogle } from "react-icons/fa";
 import "../Loginform/Login.css";
 

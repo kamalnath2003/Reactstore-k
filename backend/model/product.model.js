@@ -6,7 +6,7 @@ const productSchema = new schema({
         type:String,
         required:true
     },
-    imgUrl:{
+    imgPath:{
         type:String,
         required:true
     },

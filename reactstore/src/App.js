@@ -20,6 +20,7 @@ import ProductAction from './pages/mobile/prods/ProductAction'
 
 import ProductForm from './components/Product Form/ProductForm';
 import Orders from './pages/Orders/Orders';
+import ProductAction2 from './pages/mobile/prods/ProductAction2';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Route  path ='' element={<Index/>} />
             
             <Route path="product-action" element={<ProductAction />} />
+            <Route path="product-action2" element={<ProductAction2 />} />
           </Route>
 
       
